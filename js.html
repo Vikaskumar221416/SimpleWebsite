@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            background:#daad;
+        }
+        span
+        {
+            color: red;
+        }
+        input{
+            position: relative;
+            text-align:center;
+            padding: 10px;
+           border:none;
+           outline: none;
+           border-bottom: 2px solid #90EE90;
+           font-size: 13px;
+           box-shadow: 3px;
+           font-family: 'Fauna One', serif;
+           width: 60%;
+           left: 10%;
+           display: flex;
+           justify-content: space-between;
+           margin-left: 35px;
+           align-items: center;
+           font-weight: bold;
+           letter-spacing:1px;
+           font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+        
+    </style>
+</head>
+<script>
+function myform()
+{
+    let name=document.getElementById('name').value;
+    let last=document.getElementById('last').value;
+    let password=document.getElementById('pass').value;
+    let confirm=document.getElementById('confirm').value;
+    let mail=document.getElementById('mail').value;
+    if(name=="")
+{
+    document.getElementById('username').innerHTML="** please fill the name ";
+    return false;
+}
+if(!isNaN(name))
+{
+    document.getElementById('username').innerHTML="please fill the character only";
+    return false;
+}
+if(last=="")
+{
+    document.getElementById('username').innerHTML="** please fill  the last name ";
+    return false;
+}
+if(password=="")
+{
+    document.getElementById('username').innerHTML="** please fill the password ";
+    return false;
+}
+if(confirm=="")
+{
+    document.getElementById('username').innerHTML="** please fill the confirm password ";
+    return false;
+}
+if(password!=confirm)
+{
+    document.getElementById('match').innerHTML="Password does not matched";
+    return false;
+}
+if(mail=="")
+    {
+        document.getElementById('mail1').innerHTML="please fill email id";
+       return false;
+    }
+if(mail.indexOf('@')<= 0)
+    {
+    document.getElementById('mail1').innerHTML = " ** @ invalid position.";
+    return false;
+    }
+    
+}
+</script>
+<body>
+    <div class="outer">
+    <form onsubmit="return myform()">
+        Name<input type="text" name="username" id="name"><br><br>
+        <span id="username" class="formclear"></span><br>
+        Last name<input type="text" name="lastname" id="last"><br><br>
+        Password<input type="password" name="pass" id="pass"><br><br>
+        Confirm password<input type="password" id="confirm" name="pass"><br><br>
+        <span id="match" class="formclear"></span><br>
+        Email<input type="email" id="mail"><br><br>
+        <span id="mail1" class="formclear"></span>
+        <input type="reset">
+        <input type="submit" value="Submit form">
+        </form>
+        </div>
+</body>
+</html>
